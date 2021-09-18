@@ -2,7 +2,7 @@ from .base import *
 
 import os
 from dotenv import load_dotenv
-
+import dj_database_url
 
 load_dotenv()
 
@@ -13,6 +13,9 @@ ADMIN_URL = os.environ.get('ADMIN_URL')
 MY_URL = os.environ.get('MY_URL')
 
 ALLOWED_HOSTS.append(MY_URL)
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
