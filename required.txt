@@ -1,0 +1,9 @@
+dj-database-url
+Django
+django-compressor
+gunicorn
+psycopg2
+python-dotenv
+rcssmin
+rjsmin
+whitenoise

@@ -118,5 +118,37 @@ class FaqView(TemplateView):
 class GalleryView(TemplateView):
 	template_name = 'doctor/gallery.html'
 
-class ServiceView(TemplateView):
+class ServiceView(View):
 	template_name = 'doctor/services.html'
+	def get(self, request, *args, **kwargs):
+		form = AppointmentForm()
+		context = {
+			'form': form,
+		}
+		return render(request, self.template_name, context=context)
+	def post(self, request, *args, **kwargs):
+		form = AppointmentForm(request.POST)
+		if form.is_valid():
+			name = form.cleaned_data.get('name')
+			email = form.cleaned_data.get('email')
+			date = form.cleaned_data.get('date')
+			phone_number = form.cleaned_data.get('phone_number')
+			content = form.cleaned_data.get('content')
+			subject = 'Appointment Details'
+			message = data(
+				name=name,
+				email=email,
+				date=date.date(),
+				phone_number=phone_number,
+				content=content
+			)
+			email_from = settings.EMAIL_HOST_USER
+			recipient_list = [email, ]
+			send_mail(subject, message, email_from, recipient_list)
+			instance = form.save()
+			return redirect('/')
+		context = {
+			'form': form,
+		}
+		return render(request, self.template_name, context=context)
+	
