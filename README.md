@@ -4,45 +4,49 @@ Vist the [Website](https://healthcarewebsite.herokuapp.com/).
 
 Here's a list of the packages we will use to accomplish this:
 
--   Django
+-   Django (Async)
 -   HTML5
 -   CSS3
 -   Javascript
 -   Gunicorn
--   dj-database-url
--   psycopg2
+-   Uvicorn
+-   Cockroach DB
 -   whitenoise
+-   Vite
 -   and more .
 
 ## Code 
 
 ### Install Virtualenv 
 ```
-pip install virtualenv
-cd /path/to/folder
+python3.9 -m pip install virtualenv
+cd ~/Dev
 mkdir health_website
 cd health_website
-virtualenv .
+python3.9 -m virtualenv .
 ```
 ### Activate the Virtualenv
 ```
-source scripts/activate
+
+source bin/activate
 ```
+
 ### Install Dependencies
 ```
 cd /path/to/folder/health_website
-mkdir src
-cd src 
 git clone https://github.com/Arvind-4/HealthCare.git .
-pip install -r requirements.txt
+poetry install
 ```
-### Run the Code
+
+### Run Frontend
 ```
-cd /path/to/folder/health_website/src
-./run.sh
+cd ~/Dev/health_website/frontend
+npm i
+npm run production
 ```
-### Create Super User
+
+### Run the Backend
 ```
-cd /path/to/folder/health_website/src
-./superuser.sh
+cd ~/Dev/health_website/web
+python manage.py runserver 
 ```
