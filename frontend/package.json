@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "remove-static": "rm -rf dist ../web/static/js ../web/static/css",
+    "make-dirs": "mkdir ../web/static/css ../web/static/js ",
+    "rename-js": "renamer --regex --find 'index\\.[^\\.]+\\.js' --replace 'index.min.js' dist/assets/*.js",
+    "copy-js": "copyfiles -f 'dist/assets/*.js' ../web/static/js",
+    "rename-css": "renamer --regex --find 'index\\.[^\\.]+\\.css' --replace 'index.min.css' dist/assets/*.css",
+    "copy-css": "copyfiles -f 'dist/assets/*.css' ../web/static/css",
+    "post-remove-static": "rm -rf ./dist",
+
+    "build": "yarn remove-static && yarn make-dirs && vite build && yarn rename-js && yarn copy-js && yarn rename-css && yarn copy-css && yarn post-remove-static",
+    "production": "yarn build"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "vite": "^2.8.0",
+    "renamer": "^0.7.0"
+  }
+}
