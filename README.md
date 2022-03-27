@@ -50,3 +50,5 @@ npm run production
 cd ~/Dev/health_website/web
 python manage.py runserver 
 ```
+### Change Log
+[Logs](https://github.com/Arvind-4/HealthCare/commits)
