@@ -23,4 +23,5 @@ jobs:
     - name: Run Collectstatic
       working-directory: ./web
       run: |
+        mkdir staticfiles
         python manage.py collectstatic --noinput
