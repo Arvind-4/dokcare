@@ -22,5 +22,8 @@ jobs:
         pip install -r requirements.txt
     - name: Run Collectstatic
       working-directory: ./web
+      env:
+          DEBUG: "0"
+          DJANGO_SECRET_KEY: "secret"
       run: |
         python manage.py collectstatic --noinput
