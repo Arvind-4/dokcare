@@ -12,7 +12,7 @@
     "copy-css": "copyfiles -f 'dist/assets/*.css' ../web/static/css",
     "post-remove-static": "rm -rf ./dist",
 
-    "build": "yarn remove-static && yarn make-dirs && vite build && yarn rename-js && yarn copy-js && yarn rename-css && yarn copy-css && yarn post-remove-static",
+    "build": "yarn remove-static && yarn make-dirs && vite build && yarn rename-js && yarn copy-js && yarn rename-css && yarn copy-css",
     "production": "yarn build"
   },
   "devDependencies": {
