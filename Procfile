@@ -1,1 +1,1 @@
-web: gunicorn src.wsgi --log-file -
+web: sh -c 'cd web && gunicorn backend.asgi:application --workers 4 --worker-class uvicorn.workers.UvicornWorker'
