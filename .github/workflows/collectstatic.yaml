@@ -23,7 +23,7 @@ jobs:
     - name: Run Collectstatic
       working-directory: ./web
       env:
-          DEBUG: "0"
+          DJANGO_DEBUG: "0"
           DJANGO_SECRET_KEY: "secret"
       run: |
         python manage.py collectstatic --noinput
