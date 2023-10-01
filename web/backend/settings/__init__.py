@@ -1,6 +1,6 @@
 from backend.env import config
 
-DJANGO_LIVE = config('DJANGO_LIVE', cast=bool)
+DJANGO_LIVE = config("DJANGO_LIVE", cast=bool)
 
 if DJANGO_LIVE:
     from .production import *

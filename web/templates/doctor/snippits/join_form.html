@@ -1,31 +1,30 @@
 <form method="post" enctype="multipart/form-data">
-    <div class="form">
-        {% csrf_token %}
-        {% for field in form %}
-            <div class="input-group margin-bottom-sm">
-                <!-- <span class="input-group-addon">
+  <div class="form">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="input-group margin-bottom-sm">
+        <!-- <span class="input-group-addon">
                     <i class="fa fa-user fa-fw"></i>
                 </span> -->
-                {{field}}    
-                {% if field.help_text %}
-                    <center>
-                        <p style="padding-top: 10px;">{{field.help_text}}</p>
-                    </center>  
-                {% endif %} 
-                {% if field.errors %}
-                    {% for err in field.errors %}
-                        <font color='red'>
-                            <center>
-                                <p style="padding-top: 10px;">{{err}}</p>
-                            </center>
-                        </font>
-                        
-                    {% endfor %}
-                {% endif %}
-            </div>
-        {% endfor %}
-        <div class='text-center'>
-            <button type="submit" class="btn btn-primary send">Send</button>
-        </div>
+        {{ field }}
+        {% if field.help_text %}
+          <center>
+            <p style="padding-top: 10px;">{{ field.help_text }}</p>
+          </center>
+        {% endif %}
+        {% if field.errors %}
+          {% for err in field.errors %}
+            <font color='red'>
+              <center>
+                <p style="padding-top: 10px;">{{ err }}</p>
+              </center>
+            </font>
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+    <div class='text-center'>
+      <button type="submit" class="btn btn-primary send">Send</button>
     </div>
+  </div>
 </form>

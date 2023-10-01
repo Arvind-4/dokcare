@@ -1,7 +1,8 @@
 from functools import lru_cache
 from pathlib import Path
-from decouple import config as decouple_config, Config, RepositoryEnv
 
+from decouple import Config, RepositoryEnv
+from decouple import config as decouple_config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -14,5 +15,6 @@ def get_config():
         print("Using .env file")
         return Config(RepositoryEnv(str(ENV_FILE_PATH)))
     return decouple_config
+
 
 config = get_config()
