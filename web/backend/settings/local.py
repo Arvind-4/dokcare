@@ -2,8 +2,6 @@ from backend.env import config
 
 from .base import *
 
-print("LOCAL SETTINGS from web/backend/settings/local.py")
-
 SECRET_KEY = 'ny9nwybew$fq1gf)+c4#oj@b2wtqms*rb&5@(u8*gdir$x3hp&'
 
 DEBUG = True
@@ -15,7 +13,6 @@ INSTALLED_APPS = DJANGO_DEFAULT_APPS + THIRD_PARTY_APPS + USER_DEFINED_APPS
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware') 
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-ASGI_APPLICATION = 'backend.asgi.application'
 
 DATABASES = {
     'default': {
