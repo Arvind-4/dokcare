@@ -1,5 +1,4 @@
 asgiref
-asyncio
 django-cockroach
 django
 gunicorn
