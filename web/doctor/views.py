@@ -1,12 +1,12 @@
 from django.views import View
 from django.conf import settings
+from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
-from django.contrib import messages
 
-from .forms import AppointmentForm, DoctorJoinForm
-from .models import Appointment
 from .utils import data
+from .models import Appointment
+from .forms import AppointmentForm, DoctorJoinForm
 
 # Create your views here.
 

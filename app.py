@@ -12,7 +12,6 @@ PATHS = [
 sys.path.extend(PATHS)
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
-os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 import django
 django.setup()
