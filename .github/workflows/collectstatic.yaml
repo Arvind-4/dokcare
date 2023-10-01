@@ -21,9 +21,21 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run Collectstatic
-      working-directory: ./web
-      env:
-          DJANGO_DEBUG: "0"
-          DJANGO_SECRET_KEY: "secret"
+      env:        
+          DJANGO_SUPERUSER_EMAIL: admin@admin.com
+          DJANGO_SUPERUSER_USERNAME: admin
+          DJANGO_SUPERUSER_PASSWORD: admin1234
+          DJANGO_SECRET_KEY: bad-key
+          DJANGO_ADMIN_URL: admin/
+          DJANGO_ALLOWED_HOSTS: *
+          DJANGO_DEBUG: 1
+          DJANGO_LIVE: 0
+          DATABASE_NAME: mydb
+          DATABASE_USER: root
+          DATABASE_PASSWORD: root
+          DATABASE_HOST: localhost
+          DATABASE_PORT: 5432
+          EMAIL_HOST_USER: localhost
+          EMAIL_HOST_PASSWORD: localhost
       run: |
         python manage.py collectstatic --noinput
