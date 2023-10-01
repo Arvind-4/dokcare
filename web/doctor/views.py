@@ -8,19 +8,17 @@ from .forms import AppointmentForm, DoctorJoinForm
 from .models import Appointment
 from .utils import data
 
-from backend.views import CustomView
-
 # Create your views here.
 
-class HomeView(CustomView):
+class HomeView(View):
 	template_name = 'doctor/index.html'
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		form = AppointmentForm()
 		context = {
 			'form': form,
 		}
 		return render(request, self.template_name, context=context)
-	async def post(self, request, *args, **kwargs):
+	def post(self, request, *args, **kwargs):
 		form = AppointmentForm(request.POST)
 		if form.is_valid():
 			name = form.cleaned_data.get('name')
@@ -51,10 +49,11 @@ class HomeView(CustomView):
 			'form': form,
 		}
 		return render(request, self.template_name, context=context)
-class BlogView(CustomView):
+	
+class BlogView(View):
 	template_name = 'doctor/blog.html'
 	context = {}
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		return render(request, self.template_name, context=self.context)
 
 class ContactView(View):
@@ -121,27 +120,27 @@ class DoctorView(View):
 		}
 		return render(request, self.template_name, context=context)
 
-class FaqView(CustomView):
+class FaqView(View):
 	template_name = 'doctor/faq.html'
 	context = {}
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		return render(request, self.template_name, context=self.context)
 
-class GalleryView(CustomView):
+class GalleryView(View):
 	template_name = 'doctor/gallery.html'
 	context = {}
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		return render(request, self.template_name, context=self.context)
 
-class ServiceView(CustomView):
+class ServiceView(View):
 	template_name = 'doctor/services.html'
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		form = AppointmentForm()
 		context = {
 			'form': form,
 		}
 		return render(request, self.template_name, context=context)
-	async def post(self, request, *args, **kwargs):
+	def post(self, request, *args, **kwargs):
 		form = AppointmentForm(request.POST)
 		if form.is_valid():
 			name = form.cleaned_data.get('name')
