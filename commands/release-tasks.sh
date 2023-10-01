@@ -1,2 +1,3 @@
-python web/manage.py makemigrations --noinput
-python web/manage.py migrate --noinput
+#!/bin/bash
+python manage.py makemigrations --noinput
+python manage.py migrate --noinput
