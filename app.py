@@ -16,5 +16,5 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
 import django
 django.setup()
 
-from web.backend.wsgi import application  # noqa
-app = application
+from web.backend.wsgi import get_wsgi_application  # noqa
+app = get_wsgi_application()
