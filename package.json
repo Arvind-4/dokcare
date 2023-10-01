@@ -1,0 +1,12 @@
+{
+  "name": "django-vite",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "i": "npm i && npm install --legacy-peer-deps --no-audit --prefix=frontend",
+    "remove-dist": "rm -rf ./frontend/dist",
+    "production": "npm run build --prefix=frontend",
+    "dev": "npm run dev --prefix=frontend",
+    "format": "prettier --write ."
+  }
+}
