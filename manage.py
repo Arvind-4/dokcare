@@ -2,7 +2,16 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import pathlib
 
+BASE_DIR = pathlib.Path(__file__).parent
+
+PATHS = [
+    str(BASE_DIR / 'web'),
+    str(BASE_DIR / 'web' / 'backend'),
+]
+
+sys.path.extend(PATHS)
 
 def main():
     """Run administrative tasks."""
