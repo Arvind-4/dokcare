@@ -9,7 +9,6 @@ Welcome to **Dokcare**, your one-stop solution for healthcare appointments. Join
 ## 📦 Tech Stack:
 
 - [Django](https://www.djangoproject.com) - Django makes it easier to build better web apps more quickly and with less code.
-- [Solid Js](https://www.solidjs.com/)  - A Reactive JavaScript Library.
 - [Vite](https://vitejs.dev/)  - Next Generation Frontend Tooling.
 - [CockroachDB](https://www.cockroachlabs.com/)  - A distributed SQL database designed for speed, scale, and survival.
 
