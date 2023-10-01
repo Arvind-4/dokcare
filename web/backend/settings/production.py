@@ -38,19 +38,19 @@ MEDIA_ROOT = BASE_DIR.parent / 'media'
 from backend.db.postgres_db import * #noqa
 from backend.email.gmail import * #noqa
 
-if DJANGO_LIVE and not DJANGO_DEBUG:
-    print("SECURE SETTINGS")
-    SECURE_HSTS_SECONDS = True 
-    SECURE_HSTS_PRELOAD = True
+# if DJANGO_LIVE and not DJANGO_DEBUG:
+#     print("SECURE SETTINGS")
+#     SECURE_HSTS_SECONDS = True 
+#     SECURE_HSTS_PRELOAD = True
 
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
+#     CSRF_COOKIE_SECURE = True
+#     SESSION_COOKIE_SECURE = True
 
-    SECURE_SSL_REDIRECT = True
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     SECURE_SSL_REDIRECT = True
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#     SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 print("DJANGO_LIVE:", DJANGO_LIVE)
 print("DJANGO_DEBUG:", DJANGO_DEBUG)
