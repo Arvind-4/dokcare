@@ -27,7 +27,7 @@ jobs:
           DJANGO_SUPERUSER_PASSWORD: admin1234
           DJANGO_SECRET_KEY: bad-key
           DJANGO_ADMIN_URL: admin/
-          DJANGO_ALLOWED_HOSTS: *
+          DJANGO_ALLOWED_HOSTS: localhost
           DJANGO_DEBUG: 1
           DJANGO_LIVE: 0
           DATABASE_NAME: mydb
