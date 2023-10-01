@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.views import View
 from django.conf import settings
 from django.core.mail import send_mail
+from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from .forms import AppointmentForm, DoctorJoinForm
@@ -56,15 +57,15 @@ class BlogView(CustomView):
 	async def get(self, request, *args, **kwargs):
 		return render(request, self.template_name, context=self.context)
 
-class ContactView(CustomView):
+class ContactView(View):
 	template_name = 'doctor/contact.html'
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		form = AppointmentForm(request.POST or None)
 		context = {
 			'form': form,
 		}
 		return render(request, self.template_name, context=context)
-	async def post(self, request, *args, **kwargs):
+	def post(self, request, *args, **kwargs):
 		form = AppointmentForm(request.POST)
 		if form.is_valid():
 			name = form.cleaned_data.get('name')
@@ -81,8 +82,14 @@ class ContactView(CustomView):
 				content=content
 			)
 			email_from = settings.EMAIL_HOST_USER
-			recipient_list = [email, ]
-			send_mail(subject, message, email_from, recipient_list)
+			recipient_list = [email,]
+			send_mail(
+				subject=subject,
+				message=message,
+				from_email=email_from,
+				recipient_list=recipient_list,
+				fail_silently=False,
+			)
 			instance = form.save()
 			return redirect('/')
 		context = {
@@ -90,14 +97,14 @@ class ContactView(CustomView):
 		}
 		return render(request, self.template_name, context=context)
 
-class DoctorView(CustomView):
+class DoctorView(View):
 	template_name = 'doctor/doctors.html'
-	async def get(self, request, *args, **kwargs):
+	def get(self, request, *args, **kwargs):
 		context = {
 			'form': DoctorJoinForm()
 		}
 		return render(request, self.template_name, context=context)
-	async def post(self, request, *args, **kwargs):
+	def post(self, request, *args, **kwargs):
 		form = DoctorJoinForm(request.POST, request.FILES)
 		if form.is_valid():
 			instance = form.save(commit=False)
