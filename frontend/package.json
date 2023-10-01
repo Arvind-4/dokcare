@@ -11,13 +11,13 @@
     "rename-css": "renamer --regex --find 'index\\.[^\\.]+\\.css' --replace 'index.min.css' dist/assets/*.css",
     "copy-css": "copyfiles -f 'dist/assets/*.css' ../web/static/css",
     "post-remove-static": "rm -rf ./dist",
-
-    "build": "yarn remove-static && yarn make-dirs && vite build && yarn rename-js && yarn copy-js && yarn rename-css && yarn copy-css",
-    "production": "yarn build"
+    "build": "npm run remove-static && npm run make-dirs && vite build && npm run rename-js && npm run copy-js && npm run rename-css && npm run copy-css",
+    "production": "npm run build"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "vite": "^2.8.0",
-    "renamer": "^0.7.0"
+    "renamer": "^0.7.0",
+    "rimraf": "^3.0.2"
   }
 }
