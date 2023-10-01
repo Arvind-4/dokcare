@@ -17,5 +17,5 @@ os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 import django
 django.setup()
 
-from web.backend.asgi import get_asgi_application
-app = get_asgi_application()
+from web.backend.wsgi import get_wsgi_application
+app = get_wsgi_application()
